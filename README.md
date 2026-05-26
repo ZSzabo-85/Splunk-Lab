@@ -2,7 +2,7 @@
 
 ## Project overview
 
-The goal of this project was to simulate a realistic enterprise environment and simulate cyber attacks against Active Directory infrastructure, and detect malicious activity using a Splunk-based SIEM environment. The primary focus was to **ingest** and **analyse logs**.
+The goal of this project was to simulate a realistic enterprise environment and perform cyber attacks against Active Directory infrastructure, and detect malicious activity using Splunk. The primary focus was to **ingest** and **analyse logs**.
 
 ## Network Architecture
 
@@ -16,3 +16,17 @@ The goal of this project was to simulate a realistic enterprise environment and 
 - Domain: cyber.local
 - Windows 10: 192.168.10.100
 - Kali Linux: 192.168.10.10
+
+# Splunk installation on Ubuntu server
+## Download Splunk from official website 
+'''bash
+wget -O splunk-10.2.1-c892b66d163d-linux-amd64.tgz https[://]download.splunk.com/products/splunk/releases/10.2.1/linux/splunk-10.2.1-c892b66d163d-linux-amd64[.]tgz'''
+## Install splunk
+
+## Accept licence agreement 
+'''bash
+./splunk start --accept-license
+'''
+This stage requires to setup username and password for using splunk.
+
+
