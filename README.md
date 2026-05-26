@@ -19,23 +19,46 @@ The goal of this project was to simulate a realistic enterprise environment and 
 
 # Splunk installation on Ubuntu server
 ## Step 1 Download Splunk from official website 
-## Step 2 Extract downloadedd file
-##
-
 
 ```bash
-wget -O splunk-10.2.1-c892b66d163d-linux-amd64.tgz "https://download.splunk.com/products/splunk/releases/10.2.1/linux/splunk-10.2.1-c892b66d163d-linux-amd64.tgz"```
+wget -O splunk-10.2.1-c892b66d163d-linux-amd64.tgz "https://download.splunk.com/products/splunk/releases/10.2.1/linux/splunk-10.2.1-c892b66d163d-linux-amd64.tgz"
+```
+This command downloads the Splunk Enterprise 10.2.1 installation package from the official Splunk website.
 
+**wget** = linux command to download file from internet.
+
+**-O** = Used to select a name for the downloaded file.
+
+## Step 2 Extract downloadedd file
 ```bash
 tar -xvzf splunk-10.2.1-c892b66d163d-linux-amd64.tgz
 ```
+**tar** = Linux command used to extract or create archive files (.tar / .tgz)
 
-## Install splunk
+**-x** = extract files from an archive
 
-## Accept licence agreement 
-'''bash
+**-v** = show files being extracted (verbose)
+
+**-z** = use gzip compression/decompression
+
+**-f** = specifies the filename of the archive
+
+
+## Start Splunk and Accept licence agreement 
+```bash
 ./splunk start --accept-license
-'''
-This stage requires to setup username and password for using splunk.
+```
+This command starts Splunk and automatically accepts the license agreement.
+
+After first startup user need to create user credentials (username and password) which is required login to splunk web interface.
+
+## Start Splunk on system boot
+
+```bash
+sudo /opt/splunk/bin/splunk enable boot-start -user (username)
+```
+
+This command tells Splunk Enterprise to automatically start when the system boots and to run under a specific user account.
+
 
 
