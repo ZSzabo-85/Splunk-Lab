@@ -18,9 +18,18 @@ The goal of this project was to simulate a realistic enterprise environment and 
 - Kali Linux: 192.168.10.10
 
 # Splunk installation on Ubuntu server
-## Download Splunk from official website 
-'''bash
-wget -O splunk-10.2.1-c892b66d163d-linux-amd64.tgz https[://]download.splunk.com/products/splunk/releases/10.2.1/linux/splunk-10.2.1-c892b66d163d-linux-amd64[.]tgz'''
+## Step 1 Download Splunk from official website 
+## Step 2 Extract downloadedd file
+##
+
+
+```bash
+wget -O splunk-10.2.1-c892b66d163d-linux-amd64.tgz "https://download.splunk.com/products/splunk/releases/10.2.1/linux/splunk-10.2.1-c892b66d163d-linux-amd64.tgz"```
+
+```bash
+tar -xvzf splunk-10.2.1-c892b66d163d-linux-amd64.tgz
+```
+
 ## Install splunk
 
 ## Accept licence agreement 
