@@ -37,53 +37,143 @@ wget -O splunk-10.2.1-c892b66d163d-linux-amd64.tgz "https://download.splunk.com/
 ```
 This command downloads the Splunk Enterprise 10.2.1 installation package from the official Splunk website.
 
-**wget** = linux command to download file from internet.
-
-**-O** = Used to select a name for the downloaded file.
-
 ## Step 2 Extract downloaded file
 ```bash
 tar -xvzf splunk-10.2.1-c892b66d163d-linux-amd64.tgz
 ```
-**tar** = Linux command used to extract or create archive files (.tar / .tgz)
-
-**-x** = extract files from an archive
-
-**-v** = show files being extracted (verbose)
-
-**-z** = use gzip compression/decompression
-
-**-f** = specifies the filename of the archive
-
-
 ## Start Splunk and Accept licence agreement 
 ```bash
 ./splunk start --accept-license
 ```
 This command starts Splunk and automatically accepts the license agreement.
 
-After first startup user need to create user credentials (username and password) to access splunk web interface.
+On the first startup, user is prompted to create credentials (username and password) to access th Splunk web interface.
 
 ## Start Splunk on system boot
 
 ```bash
-sudo /opt/splunk/bin/splunk enable boot-start -user (username)
+sudo /opt/splunk/bin/splunk enable boot-start -user analyst
 ```
+This command tells Splunk Enterprise to automatically start when the system boots and run under the specified user (analyst) account.
 
-This command tells Splunk Enterprise to automatically start when the system boots and to run under a specific user account.
+# Install Splunk Universal Forwarder and Sysmon on Windows 10 and Windows Server 2022
 
-# Install Splunk Universl Forwarder and Sysmon to Windows 10 and Windows Server 2022
+## Download and Install Splunk Universal Forwarder
 
-## Download and install Splunk Universal Forwarder.
-
-It forwards endpoints' logs to Splunk Server.
+The Splunk Universal Forwarder was installed on both Windows 10 and Windows Server 2022 endpoints. It is used to forward logs from the endpoints to the Splunk server for centralised analysis.
 
 ## Download and Configure Sysmon
 
-For Sysmon configuration download and use configuration files available publicly (for his project Olaf Hartong configuration was used).
+Sysmon was installed to generate detailed endpoint telemetry.
 
-### Create inputs.conf file 
+A publicly available configuration file was used (Olaf Hartong’s Sysmon configuration) to improve logging visibility.
 
+Download the raw configuration file and save it as `sysmonconfig.xml`.
+
+Open PowerShell as Administrator and navigate to the Sysmon directory, then run:
+
+```powershell
+.\Sysmon64.exe -i ..\sysmonconfig.xml
+```
+
+## Configure inputs.conf for Splunk Universal Forwarder
+
+Open Notepad as Administrator and create an `inputs.conf` file.
+
+The default location for configuration files is:
+`C:\Program Files\SplunkUniversalForwarder\etc\system\default`
+
+However, it is **best practice not to modify** files in the `default` directory.
+
+Instead, the `inputs.conf` file should be created in the `local` directory to ensure custom configurations are preserved during updates:
+
+`C:\Program Files\SplunkUniversalForwarder\etc\system\local`
+
+### inputs.conf (Splunk Universal Forwarder Configuration)
+
+The following configuration defines which Windows Event Logs are forwarded to Splunk.
+
+```ini
+[WinEventLog://Application]
+index = endpoint
+disabled = false
+
+[WinEventLog://Security]
+index = endpoint
+disabled = false
+
+[WinEventLog://System]
+index = endpoint
+disabled = false
+
+[WinEventLog://Microsoft-Windows-Sysmon/Operational]
+index = endpoint
+disabled = false
+renderXml = true
+source = XmlWinEventLog:Microsoft-Windows-Sysmon/Operational
+```
+## Configure Splunk Forwarder and Connect to Splunk Server
+
+The `inputs.conf` file was saved to the following directory:
+
+`C:\Program Files\SplunkUniversalForwarder\etc\system\local`
+
+After modifying `inputs.conf`, the Splunk Universal Forwarder service must be restarted for changes to take effect.
+
+### Restart Splunk Forwarder Service
+
+Open **Services** as Administrator and locate **SplunkForwarder**.
+
+- Ensure the service is running under **Local System** account
+- If not, change the Log On settings accordingly
+- Right-click the service and select **Restart**
+
+This ensures the updated configuration is applied correctly.
+
+---
+
+## Configure Splunk Server
+
+On the Windows 10 machine, open a web browser and navigate to:
+
+`http://[Splunk_Server_IP]:8000`
+
+Log in using the credentials created during Splunk installation on the Ubuntu server.
+
+### Create Index
+
+Navigate to:
+
+**Settings → Indexes → New Index**
+
+Create an index named:
+
+`endpoint`
+
+This must match the index defined in `inputs.conf`.
+
+---
+
+### Enable Data Receiving
+
+Navigate to:
+
+**Settings → Forwarding and receiving → Configure receiving → New Receiving Port**
+
+- Set the port to `9997`
+- Save the configuration
+
+This port is used for receiving data from forwarders.
+
+---
+
+## Verify Data Ingestion
+
+Go to **Search & Reporting** and run:
+
+```spl
+index=endpoint
+```
 
 
 
