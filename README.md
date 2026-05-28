@@ -13,9 +13,25 @@ The lab was built to:
 
 The primary focus of the project was log ingestion, endpoint monitoring, and event analysis using Splunk.
 
+## Table of Contents
+- [Network Architecture](#network-architecture)
+- [Network Configuration](#network-configuration)
+- [Installing Splunk Enterprise on Ubuntu Server](#installing-splunk-enterprise-on-ubuntu-server)
+  - [Step 1: Download Splunk Enterprise](#step-1---download-splunk-enterprise)
+  - [Step 2: Extract Downloaded File](#step-2-extract-downloaded-file)
+  - [Start Splunk and Accept License](#start-splunk-and-accept-licence-agreement)
+  - [Start Splunk on System Boot](#start-splunk-on-system-boot)
+- [Install Splunk Universal Forwarder and Sysmon](#install-splunk-universal-forwarder-and-sysmon-on-windows-10-and-windows-server-2022)
+  - [Configure inputs.conf](#configure-inputsconf-for-splunk-universal-forwarder)
+  - [Restart Splunk Forwarder Service](#restart-splunk-forwarder-service)
+- [Configure Splunk Server](#configure-splunk-server)
+  - [Create Index](#create-index)
+  - [Enable Data Receiving](#enable-data-receiving)
+- [Verify Data Ingestion](#verify-data-ingestion)
+
 ## Network Architecture
 
-<img width="890" height="670" alt="image" src="https://github.com/user-attachments/assets/efa9acbe-fbdf-407a-960f-234ffdc9b826" />
+![Network Architecture Diagram](https://github.com/user-attachments/assets/efa9acbe-fbdf-407a-960f-234ffdc9b826)
 
 ## Network configuration 
 
