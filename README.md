@@ -28,6 +28,8 @@ The primary focus of the project was log ingestion, endpoint monitoring, and eve
   - [Create Index](#create-index)
   - [Enable Data Receiving](#enable-data-receiving)
 - [Verify Data Ingestion](#verify-data-ingestion)
+- [Active Directory](#active-directory)
+  - [Windows 10 Domain Integration](#windows-10-domain-integration)
 
 ## Network Architecture
 
@@ -185,14 +187,26 @@ This port is used for receiving data from forwarders.
 
 ## Verify Data Ingestion
 
-Go to **Search & Reporting** and run:
+Go to **Search & Reporting** and run `index=endpoint` to confirm that Splunk is receiving data from your endpoints. The results below confirm connectivity from both the Windows 10 client and the Windows Server:
 
 ```spl
 index=endpoint
 ```
+![Splunk Host Ingestion Verification](https://github.com/user-attachments/assets/07cc7b62-4e31-4096-85e0-19bfeac236c1)
 
+# Active Directory
 
+I prompted Windows Server 2022 to a Domain Controller for the cyber.local forest. This environment serves as the foundation for testing identity-based attacks and monitoring. 
 
+- **Organizational Structure:** I created multiple Organizational Units (OUs)—IT, HR, and Finance—to simulate a production environment.
+- **Identity Management:** I created user accounts to perform attack. The awhite user account was specifically configured to serve as the primary target for cyber attack simulations.
+
+## Windows 10 Domain Integration
+
+To integrate the client machine into the domain, I configured the WIN10-DESKTOP to communicate with the Domain Controller (192.168.10.5).
+- **DNS Configuration:** I updated the network settings on the Windows 10 client, setting the primary DNS server to the Domain Controller's IP address to resolve the cyber.local domain.
+- **Domain Join:** After resolving the DNS issue, I joined the machine to the domain via the System Properties menu.
+-  **Verification:** Following a system restart, I performed a successful login using the domain credentials for awhite user account. The user profile folder was automatically generated for the account upon first login, confirming the successful connection with Active Directory. 
 
 
 
