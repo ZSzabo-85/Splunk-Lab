@@ -31,6 +31,8 @@ The primary focus of the project was log ingestion, endpoint monitoring, and eve
 - [Active Directory](#active-directory)
   - [Windows 10 Domain Integration](#windows-10-domain-integration)
   - [Remote Access Configuration and Verification](#remote-access-configuration-and-verification)
+- [Attack Simulation: RDP Brute Force & RDP Connection](#attack-simulation-rdp-brute-force--rdp-connection)
+- [Detection & SIEM Analysis](#detection--siem-analysis)
 
 ## Network Architecture
 
