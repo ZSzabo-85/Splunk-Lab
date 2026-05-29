@@ -224,4 +224,26 @@ Splunk SPL
 ```
 index=endpoint EventCode=4624 Logon_Type=10
 ```
+# Attack Simulation: RDP Brute Force & RDP Connection
+In this scenario, I simulated an external attack originating from a Kali Linux machine to gain unauthorized access to the Windows 10 client.
+
+## Reconnaissance: 
+Performed nmap scan to verify that the RDP port (TCP 3389) was open and accessible.
+
+## Brute-Force: 
+Created a dictionary file (password.txt) and utilized hydra to conduct a targeted password attack against awhite user account.
+
+- **Command:** hydra -t 4 -V -f -l awhite -p password.txt rdp://192.168.10.100
+
+## Access: 
+Upon successful identification of the password, I utilized Remmina to establish a Remote Desktop session using the compromised credentials.
+
+# Detection & SIEM Analysis
+After successfully authenticating as awhite, I analyzed the Windows Event Logs in Splunk to identify the attacker.
+
+- **Failed Logons:** Captured multiple instances of EventCode 4625 indicating the failed brute-force attempts from the Kali IP.
+
+- **Successful Logon:** Identified the successful RDP logon event.
+
+- **Unlock (Logon Type 7):** Observed EventCode 4624 with Logon Type 7 (Unlock), which occurred as the attacker accessed the session previously left active by the user.
 
