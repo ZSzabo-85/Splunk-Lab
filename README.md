@@ -206,11 +206,22 @@ I prompted Windows Server 2022 to a Domain Controller for the cyber.local forest
 To integrate the client machine into the domain, I configured the WIN10-DESKTOP to communicate with the Domain Controller (192.168.10.5).
 - **DNS Configuration:** I updated the network settings on the Windows 10 client, setting the primary DNS server to the Domain Controller's IP address to resolve the cyber.local domain.
 - **Domain Join:** After resolving the DNS issue, I joined the machine to the domain via the System Properties menu.
--  **Verification:** Following a system restart, I performed a successful login using the domain credentials for awhite user account. The user profile folder was automatically generated for the account upon first login, confirming the successful connection with Active Directory. 
+-  **Verification:** Following a system restart, I performed a successful login using the domain credentials for awhite user account. The user profile folder was automatically generated for the account upon first login, confirming the successful connection with Active Directory.
 
+## Remote Access Configuration and Verification
 
+To perform remote attack simulations (like RDP brute-force), I configured the WIN10-DESKTOP to accept remote connections.
+- **Enable RDP:** Enabled "Allow remote connections to this PC" via System Properties.
+- **Access Control:** Explicitly configured Remote Desktop user permissions to allow the domain-joined awhite account access. This allowed me to test my security detections against realistic remote attack scenarios.
 
+To validate the configuration, I performed a remote login to the WIN10-DESKTOP using awhite domain account credentials.
+- **Connectivity Check:** Initiated a session via the Remote Desktop Protocol (RDP) using the mstsc client.
+- **Verification:** Successfully established the remote session and confirmed connectivity by verifying the machine's hostname and IP address via the command line (ipconfig).
+- **Session Termination:** Properly terminated the session, confirming that domain-authenticated remote access is functional and ready for security testing.
+- Detection validation: Validated the remote logon event in Splunk to ensure the activity was captured:
 
-
-
+Splunk SPL
+```
+index=endpoint EventCode=4624 Logon_Type=10
+```
 
