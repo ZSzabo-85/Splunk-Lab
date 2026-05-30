@@ -223,7 +223,7 @@ To validate the configuration, I performed a remote login to the WIN10-DESKTOP u
 - **Session Termination:** Properly terminated the session, confirming that domain-authenticated remote access is functional and ready for security testing.
 - Detection validation: Validated the remote logon event in Splunk to ensure the activity was captured:
 
-Splunk SPL
+SPL
 ```
 index=endpoint EventCode=4624 Logon_Type=10
 ```
@@ -245,8 +245,28 @@ Upon successful identification of the password, I utilized Remmina to establish 
 After successfully authenticating as awhite, I analyzed the Windows Event Logs in Splunk to identify the attacker.
 
 - **Failed Logons:** Captured multiple instances of EventCode 4625 indicating the failed brute-force attempts from the Kali IP.
+- 
+SPL
+```
+index=endpoint EventCode=4625 
+| stats count as failed_attempt by Account_Name, Source_Network_Address
+| sort -failed_attempt
+```
+- **Analysis:** I aggregated failed logon events by account and source IP address to identify suspicious authentication activity. Many failures originatd from loopback addresses (127.0.0.1 / ::1) which represent local system activity. On the other hand the activity from the external IP (192.168.10.150) allowed me to identify the attacker's IP address responsible for brute-force attempts."
 
 - **Successful Logon:** Identified the successful RDP logon event.
 
-- **Unlock (Logon Type 7):** Observed EventCode 4624 with Logon Type 7 (Unlock), which occurred as the attacker accessed the session previously left active by the user.
+SPL
+```
+index="endpoint" EventCode=4624 (Logon_Type=3 OR Logon_Type=7 OR Logon_Type=10) Source_Network_Address=192.168.10.150
+| table _time, Account_Name, Logon_Type, EventCode, Source_Network_Address
+```
+
+- **Analysis:** his query was used to identify successful logon events.
+
+  - **Logon Type 3 (Network):** Indicates successful network authentication.
+
+  - **Logon Type 7 (Unlock):** The attacker unlocked a previously locked workstation session using valid credentials.
+
+  - **Logon Type 10 (Remote Interactive):** Confirmed a full RDP session was established.
 
