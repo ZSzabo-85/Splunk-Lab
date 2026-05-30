@@ -265,6 +265,15 @@ index="endpoint" EventCode=4624 (Logon_Type=2 OR Logon_Type=3 OR Logon_Type=7) S
 ```
 ![Successful Logon with Logon_Types 2,3,7](https://github.com/user-attachments/assets/57700ac3-2ce7-4dac-ae2e-9cd52c6ad42a)
 
+SPL
+```
+index="endpoint" EventCode=4624 Logon_Type IN (10)
+| table _time, Account_Name, Logon_Type, EventCode, Source_Network_Address
+```
+
+![Successful Logon with Logon type 10](https://github.com/user-attachments/assets/5e126d09-ea7a-4430-b253-d54ed9cf284a)
+
+
 
 - **Analysis:** This query was used to identify successful logon events.
 
