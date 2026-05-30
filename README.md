@@ -262,7 +262,7 @@ index="endpoint" EventCode=4624 (Logon_Type=3 OR Logon_Type=7 OR Logon_Type=10) 
 | table _time, Account_Name, Logon_Type, EventCode, Source_Network_Address
 ```
 
-- **Analysis:** his query was used to identify successful logon events.
+- **Analysis:** This query was used to identify successful logon events.
 
   - **Logon Type 3 (Network):** Indicates successful network authentication.
 
