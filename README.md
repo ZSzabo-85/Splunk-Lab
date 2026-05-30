@@ -13,6 +13,17 @@ The lab was built to:
 
 The primary focus of the project was log ingestion, endpoint monitoring, and event analysis using Splunk.
 
+## Tools Used
+* **SIEM:** Splunk Enterprise (Log collection and analysis)
+* **Endpoint Telemetry:** Microsoft Sysmon (Advanced process and network monitoring)
+* **Operating Systems:**
+    * Ubuntu Server (Splunk Host)
+    * Windows Server 2022 (Domain Controller)
+    * Windows 10 (Client Endpoint)
+    * Kali Linux (Attacker)
+* **Attack Simulation:** Hydra (Brute-force) and Remmina (RDP Client)
+* **Environment:** Active Directory (cyber.local)
+
 ## Table of Contents
 - [Network Architecture](#network-architecture)
 - [Network Configuration](#network-configuration)
