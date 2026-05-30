@@ -252,6 +252,8 @@ index=endpoint EventCode=4625
 | stats count as failed_attempt by Account_Name, Source_Network_Address
 | sort -failed_attempt
 ```
+![Failed Logons](https://github.com/user-attachments/assets/62708946-bc9a-4942-9677-0331a1fff00b)
+
 - **Analysis:** I aggregated failed logon events by account and source IP address to identify suspicious authentication activity. Many failures originatd from loopback addresses (127.0.0.1 / ::1) which represent local system activity. On the other hand the activity from the external IP (192.168.10.150) allowed me to identify the attacker's IP address responsible for brute-force attempts."
 
 - **Successful Logon:** Identified the successful RDP logon event.
