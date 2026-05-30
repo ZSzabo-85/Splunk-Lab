@@ -260,9 +260,11 @@ index=endpoint EventCode=4625
 
 SPL
 ```
-index="endpoint" EventCode=4624 (Logon_Type=3 OR Logon_Type=7 OR Logon_Type=10) Source_Network_Address=192.168.10.150
+index="endpoint" EventCode=4624 (Logon_Type=2 OR Logon_Type=3 OR Logon_Type=7) Source_Network_Address=192.168.10.150
 | table _time, Account_Name, Logon_Type, EventCode, Source_Network_Address
 ```
+![Successful Logon with Logon_Types 2,3,7](https://github.com/user-attachments/assets/57700ac3-2ce7-4dac-ae2e-9cd52c6ad42a)
+
 
 - **Analysis:** This query was used to identify successful logon events.
 
