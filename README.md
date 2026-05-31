@@ -44,6 +44,7 @@ The primary focus of the project was log ingestion, endpoint monitoring, and eve
   - [Remote Access Configuration and Verification](#remote-access-configuration-and-verification)
 - [Attack Simulation: RDP Brute Force & RDP Connection](#attack-simulation-rdp-brute-force--rdp-connection)
 - [Detection & SIEM Analysis](#detection--siem-analysis)
+- [Key Takeaways](key-takeaways)
 
 ## Network Architecture
 
@@ -293,4 +294,8 @@ index="endpoint" EventCode=4624 Logon_Type IN (10)
   - **Logon Type 7 (Unlock):** The attacker unlocked a previously locked workstation session using valid credentials.
 
   - **Logon Type 10 (Remote Interactive):** Confirmed a full RDP session was established.
+ 
+  ## Key Takeaways
+
+  ## Troubleshooting
 
