@@ -44,7 +44,7 @@ The primary focus of the project was log ingestion, endpoint monitoring, and eve
   - [Remote Access Configuration and Verification](#remote-access-configuration-and-verification)
 - [Attack Simulation: RDP Brute Force & RDP Connection](#attack-simulation-rdp-brute-force--rdp-connection)
 - [Detection & SIEM Analysis](#detection--siem-analysis)
-- [Key Takeaways](key-takeaways)
+- [Key Takeaways](#key-takeaways)
 
 ## Network Architecture
 
