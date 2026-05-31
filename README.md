@@ -45,6 +45,7 @@ The primary focus of the project was log ingestion, endpoint monitoring, and eve
 - [Attack Simulation: RDP Brute Force & RDP Connection](#attack-simulation-rdp-brute-force--rdp-connection)
 - [Detection & SIEM Analysis](#detection--siem-analysis)
 - [Key Takeaways](#key-takeaways)
+- [Troubleshooting](#troubleshooting)
 
 ## Network Architecture
 
