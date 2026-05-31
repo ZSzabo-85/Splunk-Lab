@@ -300,134 +300,16 @@ index="endpoint" EventCode=4624 Logon_Type IN (10)
 
   ## Troubleshooting
 
-  
-During this lab, several issues were encountered:
-
-Domain join failure due to incorrect DNS configuration
-
-Can you help to rewrite to more professional way
-
-Here are a few more professional ways to phrase it, depending on the tone you want:
-
-Simple and professional
-
-During the lab, several issues were encountered, including a domain join failure caused by an incorrect DNS configuration.
-
-Formal
-
-Several issues were identified during the lab, most notably a domain join failure resulting from an incorrect DNS configuration.
-
-Technical report style
-
-During the lab exercise, multiple issues were encountered. One of the primary issues was a domain join failure, which was traced to an incorrect DNS configuration.
-
-Concise
-
-A domain join failure was encountered during the lab due to a DNS misconfiguration.
-
-Root-cause focused
-
-During the lab, a domain join failure occurred and was subsequently determined to be caused by an incorrect DNS configuration.
-
-
-Example of data ingestion problem 
-
-Splunk Data Ingestion: Data was not appearing in the endpoint index.
-​Cause: I mistakenly named the configuration file input.conf instead of inputs.conf.
-​Solution: Renamed the file to inputs.conf in the \local\ directory and restarted the Splunk Forwarder service. Verified that the index name matched exactly between the forwarder and the server.
-
-You could document it in a professional incident-report format like this:
-
-Data Ingestion Issue
-Issue: Endpoint data was not being ingested into the designated Splunk index.
-
-Cause: The Splunk Universal Forwarder configuration file was incorrectly named input.conf instead of inputs.conf, preventing the forwarder from processing the input configuration.
-
-Resolution: Renamed the configuration file to inputs.conf in the local directory and restarted the Splunk Universal Forwarder service. Additionally, verified that the index name configured on the forwarder matched the destination index on the Splunk server. Data ingestion resumed successfully after the changes were applied.
-
-Or, for a concise lab report:
-
-Data Ingestion Failure: Endpoint data was not appearing in the target Splunk index.
-
-Root Cause: Incorrect configuration filename (input.conf instead of inputs.conf).
-
-Resolution: Renamed the file to inputs.conf, restarted the Splunk Universal Forwarder service, and confirmed index name consistency between the forwarder and Splunk server. Data ingestion was successfully restored.
-
-
-Make one when win 10 cannot join to domain
-
-Domain Join Failure
-Issue: A Windows 10 workstation was unable to join the Active Directory domain.
-
-Cause: The workstation was configured with an incorrect DNS server, preventing it from locating the domain controller and resolving Active Directory services.
-
-Resolution: Updated the network adapter settings to use the correct DNS server associated with the Active Directory environment. Verified connectivity to the domain controller and successfully joined the workstation to the domain after refreshing the network configuration.
-
-Outcome: The Windows 10 workstation was successfully joined to the domain, and domain authentication and Group Policy processing functioned as expected.
-
-Concise Version:
-
-Domain Join Failure: Windows 10 workstation could not join the Active Directory domain.
-
-Root Cause: Incorrect DNS configuration prevented the workstation from locating the domain controller.
-
-Resolution: Corrected the DNS settings, verified domain controller connectivity, and successfully completed the domain join process.
-
-
-DNS Resolution: The Windows 10 client could not join the domain initially.
-​Solution: Verified that the Windows 10 client's primary DNS was set to the Domain Controller's IP (192.168.10.5) to ensure proper resolution of the cyber.local domain
-.
-
-Here's a more professional version:
-
-DNS Resolution Issue
-Issue: The Windows 10 client was unable to join the Active Directory domain during the initial attempt.
-
-Cause: The client was not configured to use the Domain Controller as its primary DNS server, preventing proper resolution of the cyber.local domain.
-
-Resolution: Verified and updated the Windows 10 client's primary DNS setting to the Domain Controller's IP address (192.168.10.5). Once proper DNS resolution was established, the client was able to successfully locate the domain controller and join the cyber.local domain.
-
-Outcome: Domain join completed successfully after correcting the DNS configuration.
-
-
-Is thatbthe reason win 10 could not connect to domain? 
-
-Yes. In an Active Directory environment, incorrect DNS configuration is one of the most common reasons a Windows 10 client cannot join a domain.
-
-When a computer joins a domain, it must locate a domain controller by querying DNS for Active Directory service records (SRV records). If the client is using the wrong DNS server (for example, a public DNS server such as Google DNS or a router's DNS service), it will be unable to resolve the domain and find the domain controller.
-
-Typical symptoms include errors such as:
-
-"An Active Directory Domain Controller for the domain could not be contacted."
-
-"The specified domain either does not exist or could not be contacted."
-
-Failure to resolve the domain name (e.g., cyber.local).
-
-For your lab report, you could write:
-
-DNS Resolution Issue
-Issue: The Windows 10 client was unable to join the cyber.local Active Directory domain.
-
-Cause: The client was not configured to use the Domain Controller (192.168.10.5) as its primary DNS server, preventing it from resolving the cyber.local domain and locating the domain controller.
-
-Resolution: Configured the Windows 10 client to use 192.168.10.5 as its primary DNS server and verified successful domain name resolution. The client was then able to locate the domain controller and join the domain successfully.
-
-This explanation is technically accurate and aligns with how Active Directory domain joins work.
-
-
-So first DNS Server was 8.8.8.8
-
-Yes, if the Windows 10 client was initially configured to use 8.8.8.8 (Google Public DNS), that would explain why it could not join the cyber.local Active Directory domain.
-
-Google's DNS servers can resolve public internet domains, but they do not host information about your internal Active Directory domain. As a result, the client would be unable to locate the domain controller through the DNS records required for Active Directory.
-
-You could document it as follows:
-
 - **DNS Resolution Issue**
- - **Issue:** The Windows 10 client was unable to join the cyber.local Active Directory domain.
+   - **Issue:** The Windows 10 client was unable to join the cyber.local Active Directory domain.
 
- - **Cause:** The client was initially configured to use Google's public DNS server (8.8.8.8) instead of the Domain Controller's DNS. This prevented the client from joining to the domain.
+    - **Reason:** The client was initially configured to use Google's public DNS server (8.8.8.8) instead of the Domain Controller's DNS. This prevented the client from joining to the domain.
 
- - **Solution:** Updated the client's primary DNS server to the Domain Controller's IP address (192.168.10.5). The client was then able to successfully join the domain.
+    - **Solution:** Updated the client's primary DNS server to the Domain Controller's IP address (192.168.10.5). The client was then able to successfully join the domain.
 
+- **Splunk Data Ingestion**
+   - **Issue:**  Data was not appearing in the endpoint index.
+
+   - **Reason:** The configuration file was incorrectly named input.conf instead of the required inputs.conf.
+
+   - **Solution:** Renamed the file to inputs.conf restarted Splunk Forwarder service. This allowed forwarder to process the logs and send them to the index.
