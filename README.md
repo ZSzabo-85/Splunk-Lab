@@ -297,6 +297,7 @@ index="endpoint" EventCode=4624 Logon_Type IN (10)
   - **Logon Type 10 (Remote Interactive):** Confirmed a full RDP session was established.
  
   ## Key Takeaways
+- **Logon Type Analysis:** Understanding Windows Logon Types is essential for differentiating between legitimate local activity and adversary remote access. Identifying Logon Type 10 (Remote Interactive) events is a critical step in detecting unauthorized sessions and lateral movement.
 
   ## Troubleshooting
 
