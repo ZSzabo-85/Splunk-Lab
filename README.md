@@ -44,6 +44,7 @@ The primary focus of the project was log ingestion, endpoint monitoring, and eve
   - [Remote Access Configuration and Verification](#remote-access-configuration-and-verification)
 - [Attack Simulation: RDP Brute Force & RDP Connection](#attack-simulation-rdp-brute-force--rdp-connection)
 - [Detection & SIEM Analysis](#detection--siem-analysis)
+- [MITRE ATT&CK Mapping](#mitre-attck-mapping)
 - [Key Takeaways](#key-takeaways)
 - [Troubleshooting](#troubleshooting)
 
@@ -299,8 +300,11 @@ index="endpoint" EventCode=4624 Logon_Type IN (10)
 ## MITRE ATT&CK Mapping
 
 - **T1110** – Brute Force (Hydra brute-force against awhite)
+   - https://attack.mitre.org/techniques/T1110/
 - **T1078** – Valid Accounts (Successful authentication using compromised credentials)
+   - https://attack.mitre.org/techniques/T1078/
 - **T1021.001** – Remote Desktop Protocol (RDP session established using the compromised account)
+   - https://attack.mitre.org/techniques/T1021/001/
  
   ## Key Takeaways
 - **Logon Type Analysis:** Understanding Windows Logon Types is essential for differentiating between legitimate local activity and adversary remote access. Identifying Logon Type 10 (Remote Interactive) events is a critical step in detecting unauthorized sessions and lateral movement.
