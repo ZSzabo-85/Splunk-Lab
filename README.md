@@ -295,6 +295,12 @@ index="endpoint" EventCode=4624 Logon_Type IN (10)
   - **Logon Type 7 (Unlock):** The attacker unlocked a previously locked workstation session using valid credentials.
 
   - **Logon Type 10 (Remote Interactive):** Confirmed a full RDP session was established.
+  - 
+## MITRE ATT&CK Mapping
+
+- **T1110** – Brute Force (Hydra brute-force against awhite)
+- **T1078** – Valid Accounts (Successful authentication using compromised credentials)
+- **T1021.001** – Remote Desktop Protocol (RDP session established using the compromised account)
  
   ## Key Takeaways
 - **Logon Type Analysis:** Understanding Windows Logon Types is essential for differentiating between legitimate local activity and adversary remote access. Identifying Logon Type 10 (Remote Interactive) events is a critical step in detecting unauthorized sessions and lateral movement.
