@@ -298,6 +298,8 @@ index="endpoint" EventCode=4624 Logon_Type IN (10)
  
   ## Key Takeaways
 - **Logon Type Analysis:** Understanding Windows Logon Types is essential for differentiating between legitimate local activity and adversary remote access. Identifying Logon Type 10 (Remote Interactive) events is a critical step in detecting unauthorized sessions and lateral movement.
+- **Advanced Query**: Utilizing SPL commands like **stats**, **table**, and **sort** is critical for transforming raw logs into structured format, provididng better visibility.
+- **Data Correlation:** Rather than relying on simple searches, performing multi-event correlation (e.g., linking EventCode with Logon_Type) is essential for mapping the full lifecycle of an attack.
 
   ## Troubleshooting
 
