@@ -82,7 +82,7 @@ tar -xvzf splunk-10.2.1-c892b66d163d-linux-amd64.tgz
 ```
 This command starts Splunk and automatically accepts the license agreement.
 
-On the first startup, user is prompted to create credentials (username and password) to access th Splunk web interface.
+On the first startup, user is prompted to create credentials (username and password) to access the Splunk web interface.
 
 ## Start Splunk on system boot
 
