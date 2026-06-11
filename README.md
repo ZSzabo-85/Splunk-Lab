@@ -296,7 +296,15 @@ index="endpoint" EventCode=4624 Logon_Type IN (10)
   - **Logon Type 7 (Unlock):** The attacker unlocked a previously locked workstation session using valid credentials.
 
   - **Logon Type 10 (Remote Interactive):** Confirmed a full RDP session was established.
-  - 
+ 
+## Indicator of Compromise (IOC)
+
+- Attacker IP Address: `192.168.10.150`
+- Target Host: `192.168.10.100`
+- Target Account: `awhite`
+- Protocol: `RDP (TCP/3389)
+- RDP Logon Type: `10`
+
 ## MITRE ATT&CK Mapping
 
 - **T1110** – Brute Force (Hydra brute-force against awhite)
