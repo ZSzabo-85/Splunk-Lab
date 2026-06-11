@@ -223,7 +223,7 @@ I promoted Windows Server 2022 to a Domain Controller for the cyber.local forest
 To integrate the client machine into the domain, I configured the WIN10-DESKTOP to communicate with the Domain Controller (192.168.10.5).
 - **DNS Configuration:** I updated the network settings on the Windows 10 client, setting the primary DNS server to the Domain Controller's IP address to resolve the cyber.local domain.
 - **Domain Join:** After resolving the DNS issue, I joined the machine to the domain via the System Properties menu.
--  **Verification:** Following a system restart, I performed a successful login using the domain credentials for awhite user account. The user profile folder was automatically generated for the account upon first login, confirming the successful connection with Active Directory.
+-  **Verification:** Following a system restart, I successfully logged in using the domain credentials for awhite user account. The user profile folder was automatically generated for the account upon first login, confirming the successful connection with Active Directory.
 
 ## Remote Access Configuration and Verification
 
