@@ -213,7 +213,7 @@ index=endpoint
 
 # Active Directory
 
-I prompted Windows Server 2022 to a Domain Controller for the cyber.local forest. This environment serves as the foundation for testing identity-based attacks and monitoring. 
+I promoted Windows Server 2022 to a Domain Controller for the cyber.local forest. This environment serves as the foundation for testing identity-based attacks and monitoring. 
 
 - **Organizational Structure:** I created multiple Organizational Units (OUs)—IT, HR, and Finance—to simulate a production environment.
 - **Identity Management:** I created user accounts to perform attack. The awhite user account was specifically configured to serve as the primary target for cyber attack simulations.
