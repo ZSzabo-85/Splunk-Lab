@@ -44,6 +44,7 @@ The primary focus of the project was log ingestion, endpoint monitoring, and eve
   - [Remote Access Configuration and Verification](#remote-access-configuration-and-verification)
 - [Attack Simulation: RDP Brute Force & RDP Connection](#attack-simulation-rdp-brute-force--rdp-connection)
 - [Detection & SIEM Analysis](#detection--siem-analysis)
+   - [Indicator of Compromise (IOC)](#indicator-of-compromise-ioc)
 - [MITRE ATT&CK Mapping](#mitre-attck-mapping)
 - [Key Takeaways](#key-takeaways)
 - [Troubleshooting](#troubleshooting)
